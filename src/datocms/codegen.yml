@@ -1,0 +1,37 @@
+overwrite: true
+schema:
+  - https://graphql.datocms.com/:
+      headers:
+        Authorization: '01a8cda54eebfd99ea0c539529ccc8'
+        Content-Type: 'application/json'
+        Accept: 'application/json'
+documents: 'src/**/*.gql'
+hooks:
+  afterAllFileWrite:
+    - 'prettier --write'
+generates:
+  ./src/datocms/generated/graphql-types.ts:
+    plugins:
+      - typescript
+      - typescript-operations:
+          strictScalars: true
+          scalars:
+            BooleanType: boolean
+            CustomData: Record<string, unknown>
+            Date: string
+            DateTime: string
+            FloatType: number
+            IntType: number
+            ItemId: string
+            JsonField: unknown
+            MetaTagAttributes: Record<string, string>
+            UploadId: string
+      - 'typescript-graphql-request'
+    config:
+      namingConvention:
+        enumValues: keep
+        typeNames: change-case-all#pascalCase
+        transformUnderscore: true
+  ./src/datocms/generated/graphql.schema.json:
+    plugins:
+      - 'introspection'

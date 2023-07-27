@@ -1,0 +1,20 @@
+query MyQuery {
+    recipe {
+        slug
+        id
+        excerpt
+        description {
+            value
+        }
+        ingredientsItems {
+            id
+            name
+        }
+        ingredientsText {
+            blocks
+            links
+            value
+        }
+        title
+    }
+}
