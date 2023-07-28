@@ -1874,7 +1874,7 @@ export type Query = {
   /** Returns meta information regarding a record collection */
   _allIngredientModelsMeta: CollectionMetadata
   /** Returns meta information regarding a record collection */
-  _allRecipesMeta: CollectionMetadata
+  _allRecipeModelsMeta: CollectionMetadata
   /** Returns meta information regarding an assets collection */
   _allUploadsMeta: CollectionMetadata
   /** Returns the single instance record */
@@ -1882,13 +1882,13 @@ export type Query = {
   /** Returns a collection of records */
   allIngredientModels: Array<IngredientModelRecord>
   /** Returns a collection of records */
-  allRecipes: Array<RecipeRecord>
+  allRecipeModels: Array<RecipeModelRecord>
   /** Returns a collection of assets */
   allUploads: Array<FileField>
   /** Returns a specific record */
   ingredientModel?: Maybe<IngredientModelRecord>
   /** Returns a specific record */
-  recipe?: Maybe<RecipeRecord>
+  recipeModel?: Maybe<RecipeModelRecord>
   /** Returns a specific asset */
   upload?: Maybe<FileField>
 }
@@ -1901,9 +1901,9 @@ export type QueryAllIngredientModelsMetaArgs = {
 }
 
 /** The query root for this schema */
-export type QueryAllRecipesMetaArgs = {
+export type QueryAllRecipeModelsMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<RecipeModelFilter>
+  filter?: InputMaybe<RecipeModelModelFilter>
   locale?: InputMaybe<SiteLocale>
 }
 
@@ -1930,12 +1930,12 @@ export type QueryAllIngredientModelsArgs = {
 }
 
 /** The query root for this schema */
-export type QueryAllRecipesArgs = {
+export type QueryAllRecipeModelsArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<RecipeModelFilter>
+  filter?: InputMaybe<RecipeModelModelFilter>
   first?: InputMaybe<Scalars['IntType']['input']>
   locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<RecipeModelOrderBy>>>
+  orderBy?: InputMaybe<Array<InputMaybe<RecipeModelModelOrderBy>>>
   skip?: InputMaybe<Scalars['IntType']['input']>
 }
 
@@ -1958,11 +1958,11 @@ export type QueryIngredientModelArgs = {
 }
 
 /** The query root for this schema */
-export type QueryRecipeArgs = {
+export type QueryRecipeModelArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<RecipeModelFilter>
+  filter?: InputMaybe<RecipeModelModelFilter>
   locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<RecipeModelOrderBy>>>
+  orderBy?: InputMaybe<Array<InputMaybe<RecipeModelModelOrderBy>>>
 }
 
 /** The query root for this schema */
@@ -1973,16 +1973,16 @@ export type QueryUploadArgs = {
   orderBy?: InputMaybe<Array<InputMaybe<UploadOrderBy>>>
 }
 
-export type RecipeModelDescriptionField = {
-  __typename?: 'RecipeModelDescriptionField'
+export type RecipeModelModelDescriptionField = {
+  __typename?: 'RecipeModelModelDescriptionField'
   blocks: Array<Scalars['String']['output']>
   links: Array<Scalars['String']['output']>
   value: Scalars['JsonField']['output']
 }
 
-export type RecipeModelFilter = {
-  AND?: InputMaybe<Array<InputMaybe<RecipeModelFilter>>>
-  OR?: InputMaybe<Array<InputMaybe<RecipeModelFilter>>>
+export type RecipeModelModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<RecipeModelModelFilter>>>
+  OR?: InputMaybe<Array<InputMaybe<RecipeModelModelFilter>>>
   _createdAt?: InputMaybe<CreatedAtFilter>
   _firstPublishedAt?: InputMaybe<PublishedAtFilter>
   _isValid?: InputMaybe<BooleanFilter>
@@ -2005,14 +2005,14 @@ export type RecipeModelFilter = {
   vegetarian?: InputMaybe<BooleanFilter>
 }
 
-export type RecipeModelIngredientsTextField = {
-  __typename?: 'RecipeModelIngredientsTextField'
+export type RecipeModelModelIngredientsTextField = {
+  __typename?: 'RecipeModelModelIngredientsTextField'
   blocks: Array<Scalars['String']['output']>
   links: Array<Scalars['String']['output']>
   value: Scalars['JsonField']['output']
 }
 
-export enum RecipeModelOrderBy {
+export enum RecipeModelModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
@@ -2045,9 +2045,9 @@ export enum RecipeModelOrderBy {
   vegetarian_DESC = 'vegetarian_DESC',
 }
 
-/** Record of type Recipe Model (recipe) */
-export type RecipeRecord = RecordInterface & {
-  __typename?: 'RecipeRecord'
+/** Record of type Recipe model (recipe_model) */
+export type RecipeModelRecord = RecordInterface & {
+  __typename?: 'RecipeModelRecord'
   _createdAt: Scalars['DateTime']['output']
   /** Editing URL */
   _editingUrl?: Maybe<Scalars['String']['output']>
@@ -2062,12 +2062,12 @@ export type RecipeRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _updatedAt: Scalars['DateTime']['output']
   createdAt: Scalars['DateTime']['output']
-  description?: Maybe<RecipeModelDescriptionField>
+  description?: Maybe<RecipeModelModelDescriptionField>
   excerpt?: Maybe<Scalars['String']['output']>
   featuredImage?: Maybe<FileField>
   id: Scalars['ItemId']['output']
   ingredientsItems: Array<IngredientModelRecord>
-  ingredientsText?: Maybe<RecipeModelIngredientsTextField>
+  ingredientsText?: Maybe<RecipeModelModelIngredientsTextField>
   publishDate?: Maybe<Scalars['Date']['output']>
   slug?: Maybe<Scalars['String']['output']>
   title?: Maybe<Scalars['String']['output']>
@@ -2075,8 +2075,8 @@ export type RecipeRecord = RecordInterface & {
   vegetarian?: Maybe<Scalars['BooleanType']['output']>
 }
 
-/** Record of type Recipe Model (recipe) */
-export type RecipeRecordSeoMetaTagsArgs = {
+/** Record of type Recipe model (recipe_model) */
+export type RecipeModelRecordSeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>
 }
 
@@ -2607,19 +2607,25 @@ export type FocalPoint = {
   y: Scalars['FloatType']['output']
 }
 
-export type MyQueryQueryVariables = Exact<{ [key: string]: never }>
+export type RecipesQueryVariables = Exact<{ [key: string]: never }>
 
-export type MyQueryQuery = {
+export type RecipesQuery = {
   __typename?: 'Query'
-  recipe?: {
-    __typename?: 'RecipeRecord'
-    slug?: string | null
+  recipeModel?: {
+    __typename?: 'RecipeModelRecord'
     id: string
     excerpt?: string | null
+    vegetarian?: boolean | null
     title?: string | null
+    slug?: string | null
     description?: {
-      __typename?: 'RecipeModelDescriptionField'
-      value: unknown
+      __typename?: 'RecipeModelModelDescriptionField'
+      blocks: Array<string>
+    } | null
+    featuredImage?: {
+      __typename?: 'FileField'
+      height?: number | null
+      width?: number | null
     } | null
     ingredientsItems: Array<{
       __typename?: 'IngredientModelRecord'
@@ -2627,33 +2633,34 @@ export type MyQueryQuery = {
       name?: string | null
     }>
     ingredientsText?: {
-      __typename?: 'RecipeModelIngredientsTextField'
+      __typename?: 'RecipeModelModelIngredientsTextField'
       blocks: Array<string>
-      links: Array<string>
-      value: unknown
     } | null
   } | null
 }
 
-export const MyQueryDocument = gql`
-  query MyQuery {
-    recipe {
-      slug
+export const RecipesDocument = gql`
+  query recipes {
+    recipeModel {
       id
-      excerpt
       description {
-        value
+        blocks
+      }
+      excerpt
+      featuredImage {
+        height
+        width
       }
       ingredientsItems {
         id
         name
       }
+      vegetarian
+      title
+      slug
       ingredientsText {
         blocks
-        links
-        value
       }
-      title
     }
   }
 `
@@ -2675,17 +2682,17 @@ export function getSdk(
   withWrapper: SdkFunctionWrapper = defaultWrapper,
 ) {
   return {
-    MyQuery(
-      variables?: MyQueryQueryVariables,
+    recipes(
+      variables?: RecipesQueryVariables,
       requestHeaders?: GraphQLClientRequestHeaders,
-    ): Promise<MyQueryQuery> {
+    ): Promise<RecipesQuery> {
       return withWrapper(
         (wrappedRequestHeaders) =>
-          client.request<MyQueryQuery>(MyQueryDocument, variables, {
+          client.request<RecipesQuery>(RecipesDocument, variables, {
             ...requestHeaders,
             ...wrappedRequestHeaders,
           }),
-        'MyQuery',
+        'recipes',
         'query',
       )
     },

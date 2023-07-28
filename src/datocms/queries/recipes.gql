@@ -1,20 +1,23 @@
-query MyQuery {
-    recipe {
-        slug
-        id
-        excerpt
-        description {
-            value
-        }
-        ingredientsItems {
-            id
-            name
-        }
-        ingredientsText {
-            blocks
-            links
-            value
-        }
-        title
+query recipes {
+  recipeModel {
+    id
+    description {
+      blocks
     }
+    excerpt
+    featuredImage {
+      height
+      width
+    }
+    ingredientsItems {
+      id
+      name
+    }
+    vegetarian
+    title
+    slug
+    ingredientsText {
+      blocks
+    }
+  }
 }

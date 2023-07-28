@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09a96779-33d4-4190-a1ac-7121e6c329e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/datocms/generated/datocms-schema.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/datocms/graphql.config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datocms/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/datocms/client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datocms/generated/graphql-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/datocms/generated/graphql-types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datocms/generated/graphql.schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/datocms/generated/graphql.schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datocms/queries/recipes.gql" beforeDir="false" afterPath="$PROJECT_DIR$/src/datocms/queries/recipes.gql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/foundations/config/env/client.env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/foundations/config/env/env.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +27,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2SsoT9goBC9CO6l2n5W7zNXabBz" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -81,7 +90,8 @@
       <workItem from="1690450123710" duration="2251000" />
       <workItem from="1690455352777" duration="1587000" />
       <workItem from="1690459705007" duration="3689000" />
-      <workItem from="1690532007512" duration="209000" />
+      <workItem from="1690532007512" duration="4485000" />
+      <workItem from="1690536514070" duration="177000" />
     </task>
     <servers />
   </component>

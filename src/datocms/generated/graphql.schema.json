@@ -6109,7 +6109,7 @@
             "deprecationReason": null
           },
           {
-            "name": "_allRecipesMeta",
+            "name": "_allRecipeModelsMeta",
             "description": "Returns meta information regarding a record collection",
             "args": [
               {
@@ -6137,7 +6137,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "RecipeModelFilter",
+                  "name": "RecipeModelModelFilter",
                   "ofType": null
                 },
                 "defaultValue": null,
@@ -6369,7 +6369,7 @@
             "deprecationReason": null
           },
           {
-            "name": "allRecipes",
+            "name": "allRecipeModels",
             "description": "Returns a collection of records",
             "args": [
               {
@@ -6397,7 +6397,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "RecipeModelFilter",
+                  "name": "RecipeModelModelFilter",
                   "ofType": null
                 },
                 "defaultValue": null,
@@ -6436,7 +6436,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "ENUM",
-                    "name": "RecipeModelOrderBy",
+                    "name": "RecipeModelModelOrderBy",
                     "ofType": null
                   }
                 },
@@ -6468,7 +6468,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "RecipeRecord",
+                    "name": "RecipeModelRecord",
                     "ofType": null
                   }
                 }
@@ -6660,7 +6660,7 @@
             "deprecationReason": null
           },
           {
-            "name": "recipe",
+            "name": "recipeModel",
             "description": "Returns a specific record",
             "args": [
               {
@@ -6688,7 +6688,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "RecipeModelFilter",
+                  "name": "RecipeModelModelFilter",
                   "ofType": null
                 },
                 "defaultValue": null,
@@ -6715,7 +6715,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "ENUM",
-                    "name": "RecipeModelOrderBy",
+                    "name": "RecipeModelModelOrderBy",
                     "ofType": null
                   }
                 },
@@ -6726,7 +6726,7 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "RecipeRecord",
+              "name": "RecipeModelRecord",
               "ofType": null
             },
             "isDeprecated": false,
@@ -6813,7 +6813,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "RecipeModelDescriptionField",
+        "name": "RecipeModelModelDescriptionField",
         "description": null,
         "fields": [
           {
@@ -6888,7 +6888,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "RecipeModelFilter",
+        "name": "RecipeModelModelFilter",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -6900,7 +6900,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "RecipeModelFilter",
+                "name": "RecipeModelModelFilter",
                 "ofType": null
               }
             },
@@ -6916,7 +6916,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "RecipeModelFilter",
+                "name": "RecipeModelModelFilter",
                 "ofType": null
               }
             },
@@ -7171,7 +7171,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "RecipeModelIngredientsTextField",
+        "name": "RecipeModelModelIngredientsTextField",
         "description": null,
         "fields": [
           {
@@ -7246,7 +7246,7 @@
       },
       {
         "kind": "ENUM",
-        "name": "RecipeModelOrderBy",
+        "name": "RecipeModelModelOrderBy",
         "description": null,
         "fields": null,
         "inputFields": null,
@@ -7437,8 +7437,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "RecipeRecord",
-        "description": "Record of type Recipe Model (recipe)",
+        "name": "RecipeModelRecord",
+        "description": "Record of type Recipe model (recipe_model)",
         "fields": [
           {
             "name": "_createdAt",
@@ -7639,7 +7639,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "RecipeModelDescriptionField",
+              "name": "RecipeModelModelDescriptionField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -7715,7 +7715,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "RecipeModelIngredientsTextField",
+              "name": "RecipeModelModelIngredientsTextField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -8012,7 +8012,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "RecipeRecord",
+            "name": "RecipeModelRecord",
             "ofType": null
           }
         ]

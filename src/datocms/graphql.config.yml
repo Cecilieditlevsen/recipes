@@ -1,0 +1,12 @@
+schema: ./generated/datocms-schema.graphql
+extensions:
+  endpoints:
+    DatoCMS Graphql Endpoint:
+      url: https://graphql.datocms.com/
+      headers:
+        accept: application/json
+        authorization: 01a8cda54eebfd99ea0c539529ccc8
+        content-type: application/json
+        x-exclude-invalid: 'true'
+        x-include-drafts: 'true'
+      introspect: true

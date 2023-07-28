@@ -9,7 +9,7 @@
     "plugin:storybook/recommended",
     "prettier"
   ],
-  "ignorePatterns": ["**/next.config.js", "dist"],
+  "ignorePatterns": ["**/next.config.js", "dist", "src/datocms/generated/**"],
   "rules": {
     "@typescript-eslint/no-unused-vars": [
       "warn",
