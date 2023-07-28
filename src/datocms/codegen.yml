@@ -1,8 +1,8 @@
 overwrite: true
 schema:
-  - https://graphql.datocms.com/:
+  - ${NEXT_PUBLIC_DATOCMS_API_BASE}:
       headers:
-        Authorization: '01a8cda54eebfd99ea0c539529ccc8'
+        Authorization: '${NEXT_PUBLIC_DATOCMS_ACCESS_TOKEN}'
         Content-Type: 'application/json'
         Accept: 'application/json'
 documents: 'src/**/*.gql'
@@ -13,19 +13,7 @@ generates:
   ./src/datocms/generated/graphql-types.ts:
     plugins:
       - typescript
-      - typescript-operations:
-          strictScalars: true
-          scalars:
-            BooleanType: boolean
-            CustomData: Record<string, unknown>
-            Date: string
-            DateTime: string
-            FloatType: number
-            IntType: number
-            ItemId: string
-            JsonField: unknown
-            MetaTagAttributes: Record<string, string>
-            UploadId: string
+      - typescript-operations
       - 'typescript-graphql-request'
     config:
       namingConvention:

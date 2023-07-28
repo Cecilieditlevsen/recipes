@@ -1,0 +1,7 @@
+fragment BlockIngredientFields on BlockIngredientRecord {
+  __typename
+  id
+  quantity
+  title
+  unit
+}

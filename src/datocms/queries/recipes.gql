@@ -1,23 +1,11 @@
-query recipes {
-  recipeModel {
-    id
-    description {
-      blocks
-    }
-    excerpt
-    featuredImage {
-      height
-      width
-    }
-    ingredientsItems {
-      id
-      name
-    }
-    vegetarian
-    title
-    slug
-    ingredientsText {
-      blocks
-    }
+query GetAllRecipes {
+  allRecipes(first: 100) {
+    ...RecipeFields
+  }
+}
+
+query GetRecipe($slug: String!) {
+  recipe(filter: { slug: { eq: $slug } }) {
+    ...RecipeFields
   }
 }

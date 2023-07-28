@@ -1,0 +1,5 @@
+fragment IngredientFields on IngredientRecord {
+  __typename
+  id
+  name
+}

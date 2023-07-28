@@ -2,7 +2,7 @@ import { GraphQLClient } from 'graphql-request'
 
 import { getSdk } from './generated/graphql-types'
 
-import { env } from '@/foundations/config/env/env'
+import { env } from '@/foundation/config/env/env'
 
 const client = new GraphQLClient(env.client.NEXT_PUBLIC_DATOCMS_API_BASE, {
   headers: {
@@ -12,4 +12,4 @@ const client = new GraphQLClient(env.client.NEXT_PUBLIC_DATOCMS_API_BASE, {
   },
 })
 
-export const datocmsClint = getSdk(client)
+export const datocmsClient = getSdk(client)
