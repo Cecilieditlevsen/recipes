@@ -1,12 +1,14 @@
+import React from 'react'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import Link from 'next/link'
+
+import './globals.css'
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 })
-
-import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Mad til to',
@@ -21,12 +23,14 @@ export default function RootLayout({
   return (
     <html lang={'en'}>
       <body className={`${poppins.className} h-screen`}>
-        <div className={'px-4 flex flex-col mx-auto'}>
-          <header>
-            <h1 className={'text-3xl font-bold text-red-600 '}>Mad Til To</h1>
-          </header>
-          {children}
-        </div>
+        <header>
+          <div className={'container py-6'}>
+            <Link href={'/'} className={'text-3xl font-bold text-red-600'}>
+              Mad Til To
+            </Link>
+          </div>
+        </header>
+        {children}
       </body>
     </html>
   )

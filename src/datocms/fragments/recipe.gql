@@ -1,0 +1,31 @@
+fragment RecipeFields on RecipeRecord {
+  __typename
+  excerpt
+  id
+  slug
+  title
+  vegetarian
+  description {
+    blocks
+  }
+  featuredImage {
+    responsiveImage(
+      imgixParams: {
+        auto: format
+        crop: focalpoint
+        dpi: 2
+        fit: crop
+        h: 675
+        w: 1200
+      }
+    ) {
+      ...ResponsiveImageFields
+    }
+  }
+  ingredientItems {
+    ...IngredientFields
+  }
+  ingredientsText {
+    blocks
+  }
+}

@@ -1,0 +1,13 @@
+fragment ResponsiveImageFields on ResponsiveImage {
+  __typename
+  sizes
+  src
+  srcSet
+  webpSrcSet
+  aspectRatio
+  width
+  height
+  alt
+  title
+  base64
+}

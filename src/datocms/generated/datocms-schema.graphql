@@ -98,6 +98,32 @@ interface RecordInterface {
     id: ItemId!
 }
 
+"Block of type Block Ingredient (block_ingredient)"
+type BlockIngredientRecord implements RecordInterface {
+    _createdAt: DateTime!
+    "Editing URL"
+    _editingUrl: String
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    createdAt: DateTime!
+    id: ItemId!
+    quantity: IntType
+    title: String!
+    unit: String
+    updatedAt: DateTime!
+}
+
 type CollectionMetadata {
     count: IntType!
 }
@@ -193,34 +219,82 @@ type GlobalSeoField {
     twitterAccount: String
 }
 
-"Block of type Ingredient Block (ingredient_block)"
-type IngredientBlockRecord implements RecordInterface {
+type ImageFileField implements FileFieldInterface {
     _createdAt: DateTime!
     "Editing URL"
     _editingUrl: String
-    _firstPublishedAt: DateTime
-    _isValid: BooleanType!
-    _modelApiKey: String!
-    _publicationScheduledAt: DateTime
-    _publishedAt: DateTime
-    "SEO meta tags"
-    _seoMetaTags(
+    _updatedAt: DateTime!
+    alt(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
         "The locale to use to fetch the field's content"
         locale: SiteLocale
-    ): [Tag!]!
-    _status: ItemStatus!
-    _unpublishingScheduledAt: DateTime
-    _updatedAt: DateTime!
-    createdAt: DateTime!
-    id: ItemId!
-    quantity: IntType
-    title: String!
-    unit: String
-    updatedAt: DateTime!
+    ): String
+    author: String
+    basename: String!
+    blurUpThumb(
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams,
+        "Controls the \"punch\" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)"
+        punch: Float! = 1.0,
+        "Image quality (defaults to 70%)"
+        quality: Int! = 70,
+        "Maximum image dimension (defaults to 24px)"
+        size: Int! = 24
+    ): String
+    blurhash: String
+    colors: [ColorField!]!
+    copyright: String
+    customData(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): CustomData!
+    exifInfo: CustomData!
+    filename: String!
+    focalPoint(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): focalPoint!
+    format: String!
+    height: IntType!
+    id: UploadId!
+    md5: String!
+    mimeType: String!
+    notes: String
+    responsiveImage(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        "Specify a custom `sizes` attribute for the image"
+        sizes: String
+    ): ResponsiveImage!
+    size: IntType!
+    smartTags: [String!]!
+    tags: [String!]!
+    thumbhash: String
+    title(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    url(
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams
+    ): String!
+    video: UploadVideoField
+    width: IntType!
 }
 
-"Record of type Ingredient model (ingredient_model)"
-type IngredientModelRecord implements RecordInterface {
+"Record of type Ingredient (ingredient)"
+type IngredientRecord implements RecordInterface {
     _createdAt: DateTime!
     "Editing URL"
     _editingUrl: String
@@ -246,18 +320,18 @@ type IngredientModelRecord implements RecordInterface {
 "The query root for this schema"
 type Query {
     "Returns meta information regarding a record collection"
-    _allIngredientModelsMeta(
+    _allIngredientsMeta(
         "If you want to fallback to a default translation when a translation has not been found"
         fallbackLocales: [SiteLocale!],
-        filter: IngredientModelModelFilter,
+        filter: IngredientModelFilter,
         "The locale to use to fetch the field's content"
         locale: SiteLocale
     ): CollectionMetadata!
     "Returns meta information regarding a record collection"
-    _allRecipeModelsMeta(
+    _allRecipesMeta(
         "If you want to fallback to a default translation when a translation has not been found"
         fallbackLocales: [SiteLocale!],
-        filter: RecipeModelModelFilter,
+        filter: RecipeModelFilter,
         "The locale to use to fetch the field's content"
         locale: SiteLocale
     ): CollectionMetadata!
@@ -275,31 +349,31 @@ type Query {
         locale: SiteLocale
     ): Site!
     "Returns a collection of records"
-    allIngredientModels(
+    allIngredients(
         "If you want to fallback to a default translation when a translation has not been found"
         fallbackLocales: [SiteLocale!],
-        filter: IngredientModelModelFilter,
+        filter: IngredientModelFilter,
         "Limit the number of results"
         first: IntType = 20,
         "The locale to use to fetch the field's content"
         locale: SiteLocale,
-        orderBy: [IngredientModelModelOrderBy] = [_updatedAt_DESC],
+        orderBy: [IngredientModelOrderBy] = [_updatedAt_DESC],
         "Skip the first results"
         skip: IntType
-    ): [IngredientModelRecord!]!
+    ): [IngredientRecord!]!
     "Returns a collection of records"
-    allRecipeModels(
+    allRecipes(
         "If you want to fallback to a default translation when a translation has not been found"
         fallbackLocales: [SiteLocale!],
-        filter: RecipeModelModelFilter,
+        filter: RecipeModelFilter,
         "Limit the number of results"
         first: IntType = 20,
         "The locale to use to fetch the field's content"
         locale: SiteLocale,
-        orderBy: [RecipeModelModelOrderBy] = [_updatedAt_DESC],
+        orderBy: [RecipeModelOrderBy] = [_updatedAt_DESC],
         "Skip the first results"
         skip: IntType
-    ): [RecipeModelRecord!]!
+    ): [RecipeRecord!]!
     "Returns a collection of assets"
     allUploads(
         "If you want to fallback to a default translation when a translation has not been found"
@@ -314,23 +388,23 @@ type Query {
         skip: IntType
     ): [FileField!]!
     "Returns a specific record"
-    ingredientModel(
+    ingredient(
         "If you want to fallback to a default translation when a translation has not been found"
         fallbackLocales: [SiteLocale!],
-        filter: IngredientModelModelFilter,
+        filter: IngredientModelFilter,
         "The locale to use to fetch the field's content"
         locale: SiteLocale,
-        orderBy: [IngredientModelModelOrderBy] = [_updatedAt_DESC]
-    ): IngredientModelRecord
+        orderBy: [IngredientModelOrderBy] = [_updatedAt_DESC]
+    ): IngredientRecord
     "Returns a specific record"
-    recipeModel(
+    recipe(
         "If you want to fallback to a default translation when a translation has not been found"
         fallbackLocales: [SiteLocale!],
-        filter: RecipeModelModelFilter,
+        filter: RecipeModelFilter,
         "The locale to use to fetch the field's content"
         locale: SiteLocale,
-        orderBy: [RecipeModelModelOrderBy] = [_updatedAt_DESC]
-    ): RecipeModelRecord
+        orderBy: [RecipeModelOrderBy] = [_updatedAt_DESC]
+    ): RecipeRecord
     "Returns a specific asset"
     upload(
         "If you want to fallback to a default translation when a translation has not been found"
@@ -342,20 +416,20 @@ type Query {
     ): FileField
 }
 
-type RecipeModelModelDescriptionField {
+type RecipeModelDescriptionField {
     blocks: [String!]!
     links: [String!]!
     value: JsonField!
 }
 
-type RecipeModelModelIngredientsTextField {
+type RecipeModelIngredientsTextField {
     blocks: [String!]!
     links: [String!]!
     value: JsonField!
 }
 
-"Record of type Recipe model (recipe_model)"
-type RecipeModelRecord implements RecordInterface {
+"Record of type Recipe (recipe)"
+type RecipeRecord implements RecordInterface {
     _createdAt: DateTime!
     "Editing URL"
     _editingUrl: String
@@ -373,12 +447,12 @@ type RecipeModelRecord implements RecordInterface {
     _unpublishingScheduledAt: DateTime
     _updatedAt: DateTime!
     createdAt: DateTime!
-    description: RecipeModelModelDescriptionField!
+    description: RecipeModelDescriptionField!
     excerpt: String!
-    featuredImage: FileField!
+    featuredImage: ImageFileField!
     id: ItemId!
-    ingredientsItems: [IngredientModelRecord!]!
-    ingredientsText: RecipeModelModelIngredientsTextField
+    ingredientItems: [IngredientRecord!]!
+    ingredientsText: RecipeModelIngredientsTextField
     publishDate: Date!
     slug: String!
     title: String!
@@ -651,7 +725,7 @@ enum ImgixParamsTxtFit {
     max
 }
 
-enum IngredientModelModelOrderBy {
+enum IngredientModelOrderBy {
     _createdAt_ASC
     _createdAt_DESC
     _firstPublishedAt_ASC
@@ -690,7 +764,7 @@ enum MuxThumbnailFormatType {
     png
 }
 
-enum RecipeModelModelOrderBy {
+enum RecipeModelOrderBy {
     _createdAt_ASC
     _createdAt_DESC
     _firstPublishedAt_ASC
@@ -2238,9 +2312,9 @@ input InUseFilter {
     eq: BooleanType
 }
 
-input IngredientModelModelFilter {
-    AND: [IngredientModelModelFilter]
-    OR: [IngredientModelModelFilter]
+input IngredientModelFilter {
+    AND: [IngredientModelFilter]
+    OR: [IngredientModelFilter]
     _createdAt: CreatedAtFilter
     _firstPublishedAt: PublishedAtFilter
     _isValid: BooleanFilter
@@ -2307,9 +2381,9 @@ input PublishedAtFilter {
     neq: DateTime
 }
 
-input RecipeModelModelFilter {
-    AND: [RecipeModelModelFilter]
-    OR: [RecipeModelModelFilter]
+input RecipeModelFilter {
+    AND: [RecipeModelFilter]
+    OR: [RecipeModelFilter]
     _createdAt: CreatedAtFilter
     _firstPublishedAt: PublishedAtFilter
     _isValid: BooleanFilter
@@ -2323,7 +2397,7 @@ input RecipeModelModelFilter {
     excerpt: StringFilter
     featuredImage: FileFilter
     id: ItemIdFilter
-    ingredientsItems: LinksFilter
+    ingredientItems: LinksFilter
     ingredientsText: StructuredTextFilter
     publishDate: DateFilter
     slug: SlugFilter
