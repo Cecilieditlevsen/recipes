@@ -32,7 +32,7 @@ The project utilizes the following technologies:
 
 `Codegen` To generate types from GraphQL schemas
 
-`Tailwindcss` To facilitate a utility-first and component-based approach
+`Tailwindcss` To facilitate a utility-first and component-based approach to building UI
 
 `TypeScript` To enhance code maintainability and reliability
 
