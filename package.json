@@ -14,6 +14,8 @@
     "codegen": "graphql-codegen --require dotenv/config --config ./src/datocms/codegen.yml"
   },
   "dependencies": {
+    "@radix-ui/react-popover": "1.0.6",
+    "@radix-ui/react-tooltip": "^1.0.6",
     "class-variance-authority": "^0.7.0",
     "dotenv": "^16.3.1",
     "framer-motion": "^10.15.0",

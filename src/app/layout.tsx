@@ -1,9 +1,10 @@
 import React from 'react'
-import {Bars3Icon} from "@heroicons/react/24/outline";
 import { Poppins } from 'next/font/google'
 import Link from 'next/link'
 
 import './globals.css'
+
+import PopoverDemo from "@/components/popover";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -25,9 +26,7 @@ export default function RootLayout({
             <Link href={'/'} className={'text-2xl md:text-3xl font-medium text-red-600'}>
               Mad Til To
             </Link>
-            <button>
-             <Bars3Icon className={'w-8 text-red-600 ml-5'} />
-            </button>
+            <PopoverDemo />
           </div>
         </header>
         <main className={'py-10'}>{children}</main>
