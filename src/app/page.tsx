@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import { contentService } from '@/modules/content/content.service'
 import {Recipe} from "@/components/recipe";
+import { contentService } from '@/modules/content/content.service'
 
 
 export default async function Home() {

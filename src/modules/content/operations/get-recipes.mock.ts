@@ -1,4 +1,5 @@
-import {ok, Result} from "neverthrow";
+import type { Result} from "neverthrow";
+import {ok} from "neverthrow";
 
 const createRecipe = (recipe: Recipe) => {
     return recipe

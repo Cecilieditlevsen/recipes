@@ -1,9 +1,9 @@
 import React from 'react'
+import {Bars3Icon} from "@heroicons/react/24/outline";
 import { Poppins } from 'next/font/google'
 import Link from 'next/link'
 
 import './globals.css'
-import {Bars3Icon} from "@heroicons/react/24/outline";
 
 const poppins = Poppins({
   subsets: ['latin'],
