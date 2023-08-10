@@ -4,7 +4,7 @@
 
 This is a spare-time project that I am currently working on. Its goal is to address a problem in my private life: deciding what to have for dinner. Here is an overview of the recipes we enjoy making and eating. 
 
-Live Demo: 🚧🛠️ under construction 🛠️🚧
+Live Demo: 🚧🛠️ [under construction](https://recipes-sigma-lemon.vercel.app/ ) 🛠️🚧 
 
 
 ## Project Overview
